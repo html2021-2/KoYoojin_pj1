@@ -1,0 +1,86 @@
+@charset "utf-8";
+@-webkit-keyframes moveY {
+    0%{-webkit-transform: translateY(-5px);}
+    100%{-webkit-transform: translateY(0);}
+}
+@-moz-keyframes moveY {
+    0%{-moz-transform: translateY(-5px);}
+    100%{-moz-transform: translateY(0);}
+}
+@-o-keyframes moveY {
+    0%{-o-transform: translateY(-5px);}
+    100%{-o-transform: translateY(0);}
+}
+@keyframes moveY {
+    0%{transform: translateY(-5px);}
+    100%{transform: translateY(0);}
+}
+.tit_top{padding: 55px 0 50px;}
+.tit{font-size: 24px;letter-spacing: 7.8px;text-align: center;background: pink;}
+section.section{height: 100vh;}
+
+/*fullpage 인디케이터 버튼(#fp-nav)*/
+#fp-nav.fp-right{right: 150px;}
+#fp-nav ul li:last-child{width: 1px;height: 1px;overflow: hidden;border: none;position: absolute;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
+#fp-nav ul li + li{margin-top: 20px;}
+#fp-nav ul li a span, .fp-slidesNav ul li a span, #fp-nav ul li:hover a span{width: 6px;height: 6px;border: 2px solid #aaa;background: none;margin: -5px 0 0 -5px;}
+#fp-nav ul li a.active span, #fp-nav ul li:hover a.active span{width: 12px;height: 12px;background: #d60037;border: none;margin: -6px 0 0 -6px;}
+#fp-nav ul li:hover a span{border-color: #d60037;}
+#fp-nav ul li .fp-tooltip{padding: 0 10px;height: 22px;line-height: 22px;background: #d60037;color: #fff;font-family: NtSansKR;top: -5px;border-radius: 3px;margin-right: 3px;overflow: visible;}
+#fp-nav ul li:hover .fp-tooltip::after, #fp-nav.fp-show-active a.active + .fp-tooltip::after{content: "";position: absolute;right: -6px;top: 7px;border-left: 6px solid #d60037;border-top: 4px solid transparent;border-bottom: 4px solid transparent;}
+
+/*#cnt1*/
+#cnt1 .swiper-container{height: 100vh;}
+#cnt1 .swiper-container .swiper-slide{position: relative;background: no-repeat center -110px;background-size: cover;}
+#cnt1 .swiper-container .slide1{background-image: url("../images/main/new_latte_menuText.jpg");}
+#cnt1 .swiper-container .slide2{background-image: url("../images/main/new_ade_menuText3.jpg");}
+#cnt1 .swiper-container .slide3{background-image: url("../images/main/new_bingsu4.jpg");}
+
+#cnt1 .swiper-container .swiper-slide a{display: block;margin: 0 auto;font-size: 28px;font-weight: 500;text-align: right;color: #444;}
+#cnt1 .swiper-container .slide1 a{width: 1280px;margin-top: 320px;}
+#cnt1 .swiper-container .slide2 a{text-align: center;margin-top: 470px;}
+#cnt1 .swiper-container .slide3 a{width: 1120px;margin-top: 255px;}
+
+/*#cnt1 .controller*/
+#cnt1 .controller{width: 225px;height: 56px;background: rgba(0, 0, 0, .5);left: 10vw;bottom: 150px;border-radius: 50px;z-index: 50;}
+#cnt1 .controller .swiper-pagination{width: 60px;height: 100%;left: 57px;top: 0;line-height: 56px;font-size: 14px;font-weight: 300;text-align: center;color: #fff;}
+#cnt1 .controller .swiper-pagination .swiper-pagination-current{font-size: 20px;}
+#cnt1 .controller .swiper-button-next:after, #cnt1 .controller .swiper-button-prev:after{display: none;}
+#cnt1 .controller div + div{margin-top: 0;}
+#cnt1 .controller div + div, #cnt1 .controller button{position: absolute;width: 41px;height: 40px;top: 8px;background: url("../images/icon/pc-basic-large_h40.png") no-repeat;}
+#cnt1 .controller .swiper-button-prev{background-position-x: -262px;left: 10px;}
+#cnt1 .controller .swiper-button-next{background-position-x: -394px;right: 60px;}
+#cnt1 .controller .stop_play{right: 10px;}
+#cnt1 .controller .btn_play{display: none;background-position-x: -131px;}
+
+/*#cnt2*/
+#cnt2 ul{width: 1200px;margin: 0 auto;text-align: center;}
+#cnt2 ul li{position: relative;float: left;width: 340px;height: 560px;background: no-repeat;opacity: 0;transition: all 1s;}
+#cnt2 ul li:nth-child(odd){top: 100px;}
+#cnt2 ul li:nth-child(even){top: -100px;}
+#cnt2.on ul li{opacity: 1;top: 0;}
+#cnt2 ul li + li{margin-left: 90px;}
+#cnt2 ul .store1{background-image: url("../images/main/store_parkone.jpg");}
+#cnt2 ul .store2{background-image: url("../images/main/store_yeonsaero.jpg");background-position-y: bottom;margin-top: 50px;transition-delay: 0.2s;}
+#cnt2 ul .store3{background-image: url("../images/main/store-nonhyun.jpg");transition-delay: 0.4s;}
+#cnt2 ul li .store_name{width: 100%;position: absolute;}
+#cnt2 ul li:nth-child(odd) .store_name{bottom: 0;}
+
+#cnt2 ul li .store_name strong{display: block;color: #666;font-size: 16px;letter-spacing: 0.8px;font-weight: 400;margin-bottom: 17px;}
+#cnt2 ul li .store_name h3{color: #333;font-size: 34px;letter-spacing: 2.55px;}
+
+#cnt2 ul li .over{position: absolute;width: 100%;height: 460px;color: #fff;overflow: hidden;}
+#cnt2 ul li:nth-child(2) .over{bottom: 0;}
+#cnt2 ul li .over .over_bg{width: 100%;height: 100%;background: rgba(0, 0, 0, .7);transition: margin-top 0.5s;}
+#cnt2 ul li:nth-child(odd) .over .over_bg{margin-top: 460px;}
+#cnt2 ul li:nth-child(2) .over .over_bg{margin-top: -460px;}
+/* 마우스 오버와 포커스로 활성화 되면 */
+#cnt2 ul li.on .over .over_bg{margin-top: 0;}
+#cnt2 ul li .over p{position: relative;font-size: 14px;letter-spacing: -0.1px;line-height: 24px;padding: 195px 0 56px;}
+#cnt2 ul li .over p::before{content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: no-repeat center 60px;background-size: 60px;-webkit-animation: moveY 1s cubic-bezier(0.35, 0.03, 0.62, 0.92) infinite alternate;-moz-animation: moveY 1s cubic-bezier(0.35, 0.03, 0.62, 0.92) infinite alternate;-o-animation: moveY 1s cubic-bezier(0.35, 0.03, 0.62, 0.92) infinite alternate;animation: moveY 1s cubic-bezier(0.35, 0.03, 0.62, 0.92) infinite alternate;}
+#cnt2 ul .store1 .over p::before{background-image: url("../images/main/flagship_icon_parkone.png");}
+#cnt2 ul .store2 .over p::before{background-image: url("../images/main/flagship_icon_yeonsaero.png");}
+#cnt2 ul .store3 .over p::before{background-image: url("../images/main/flagship_icon_nonhyun.png");}
+#cnt2 ul li .over p::after{content: "";position: absolute;width: 32px;height: 1px;background: #fff;left: 154px;top: 170px;}
+#cnt2 ul li .over a{display: block;width: 126px;height: 42px;line-height: 40px;border: 1px solid #fff;border-radius: 20px;margin: 0 auto;-moz-box-sizing: border-box;box-sizing: border-box;-webkit-transition: all 0.2s;-moz-transition: all 0.2s;-o-transition: all 0.2s;transition: all 0.2s;}
+#cnt2 ul li .over a:hover, #cnt2 ul li .over a:focus{color: #d60037;background: #fff;}

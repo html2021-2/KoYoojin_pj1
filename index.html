@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 투썸플레이스 - Premium Dessert Cafe </title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script:regular" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fullpage.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/fullpage.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*full page 스크립트*/
+            $('#container').fullpage({
+                navigation: true,
+                navigationPosition: 'right',
+                navigationTooltips: ['신메뉴', '플래그십 매장', '브랜드 필름', '투썸 소식', '푸터'],
+                afterRender: function () { //fullpage의 랜더링이 끝나 화면을 보여주면
+                    $('.fp-tooltip').attr('aria-hidden', true);
+                },
+                afterLoad: function (origin, destination, direction) { //본문을 불러오고 나서 스크롤이 끝나면 실행=> fade를 위해 추가됨
+                    if (destination.index == 1) { //도착지 인덱스 번호는 0부터 시작
+                        $('#cnt2').addClass('on');
+                    } else {
+                        $('#cnt2').removeClass('on');
+                    }
+                }
+            });
+
+            /*swiper 스크립트 , 본문 3에도 있으니까 이름은 swiper1로 수정합니다 */
+            const swiper1 = new Swiper('#cnt1 .swiper-container', {
+                direction: 'horizontal',
+                loop: true,
+
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'fraction',
+                },
+
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                /* autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }, */
+            });
+
+            $('.btn_stop').on('click', function () {
+                $(this).hide().siblings('button').show();
+                swiper1.autoplay.stop();
+            });
+            $('.btn_play').on('click', function () {
+                $(this).hide().siblings('button').show();
+                swiper1.autoplay.start();
+            });
+
+            //mouseover시 일어나는 effect : 해당 본문이 보여지면 fade 효과 넣기 위해 fade 되는 대상에 .fade를 추가했어요
+            var $fade = $(".fade");
+            $fade.attr('tabindex', 0);
+
+            //li에 포커스가 가거나 마우스가 진입할 경우 클래스 추가, 포커스와 마우스가 나가면 처음으로 되돌리기
+            $fade.on({
+                'focusin mouseenter': function () {
+                    $(this).addClass("on");
+                },
+                'focusout mouseleave': function () {
+                    $(this).removeClass("on");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <div id="wrap">
+        <header id="header" class="bdbox">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="index.html"><img src="assets/images/common/logo.png" alt="투썸플레이스"></a>
+                </h1>
+                <ul class="util d_f">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">기업 및 단체 구매</a></li>
+                </ul>
+                <div class="gnb_franchise d_f">
+                    <nav id="gnb">
+                        <h2 class="blind">주메뉴</h2>
+                        <ul class="d_f">
+                            <li>
+                                <a href="story/coff_story.html">TWOSOME</a>
+                                <ul>
+                                    <li><a href="story/coff_story.html">투썸 히스토리</a></li>
+                                    <li><a href="story/coff_story.html">커피 스토리</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="menu/drink.html">MENU</a>
+                                <ul>
+                                    <li><a href="menu/drink.html">음료</a></li>
+                                    <li><a href="menu/drink.html">푸드</a></li>
+                                    <li><a href="menu/drink.html">상품</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="index.html">STORE</a>
+                                <ul>
+                                    <li><a href="index.html">국내</a></li>
+                                    <li><a href="index.html">해외</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="index.html">MEMBERSHIP</a>
+                                <ul>
+                                    <li><a href="index.html">멤버십 안내</a></li>
+                                    <li><a href="index.html">제휴 카드</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="news/news.html">NEWS</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="" class="franchise bdbox">창업설명회</a>
+                </div>
+            </div>
+        </header>
+        <div id="container">
+            <section class="section" id="cnt1">
+                <h2 class="blind">여름 시즌 신메뉴 출시</h2>
+                <div class="swiper-container p_r">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide slide1">
+                            <div class="blind">
+                                <strong>Espresso Sweet&apos;n Cool</strong>
+                                <h3>썸머 라떼 3종</h3>
+                                <ul>
+                                    <li>아이스크림 카페라떼</li>
+                                    <li>달고나 카페라떼</li>
+                                    <li>커피젤리 카페라떼</li>
+                                </ul>
+                            </div>
+                            <a href="menu/drink.html">메뉴 보러가기</a>
+                        </div>
+                        <div class="swiper-slide slide2">
+                            <div class="blind">
+                                <strong>Summer Chill Out</strong>
+                                <h3>썸머 에이드 2종</h3>
+                                <ul>
+                                    <li>샤인머스켓 청포도 에이드</li>
+                                    <li>히비스커스 시트러스 에이드</li>
+                                </ul>
+                            </div>
+                            <a href="menu/drink.html">메뉴 보러가기</a>
+                        </div>
+                        <div class="swiper-slide slide3">
+                            <div class="blind">
+                                <strong>Meet Your Cool Spoon</strong>
+                                <h3>썸머 빙수 4종</h3>
+                                <ul>
+                                    <li>망고 빙수</li>
+                                    <li>오리지널 팥빙수</li>
+                                    <li>요거 베리 케이크 빙수</li>
+                                    <li>스페니쉬 라떼 케이크 빙수</li>
+                                </ul>
+                            </div>
+                            <a href="menu/drink.html">메뉴 보러가기</a>
+                        </div>
+                    </div>
+                    <div class="controller p_a">
+                        <div class="swiper-pagination p_a"></div>
+                        <div class="swiper-button-prev">
+                            <span class="blind">이전버튼</span>
+                        </div>
+                        <div class="swiper-button-next">
+                            <span class="blind">다음버튼</span>
+                        </div>
+                        <button class="btn_stop stop_play" type="button">
+                            <span class="blind">일시정지</span>
+                        </button>
+                        <button class="btn_play stop_play" type="button">
+                            <span class="blind">자동재생</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="cnt2">
+                <h2 class="tit_top tit">플래그십 매장</h2>
+                <ul class="clearfix">
+                    <li class="store1 fade">
+                        <div class="store_name">
+                            <strong>&quot;Modern French Mood&quot;</strong>
+                            <h3>여의도 파크원점</h3>
+                        </div>
+                        <div class="over">
+                            <div class="over_bg">
+                                <p>세련되고 유니크한 디자인 가득!<br>
+                                    여의도파크원점에서 인생샷 남기고<br>
+                                    감각적이고 우아한 무드를 경험해보세요</p>
+                                <a href="">매장 안내</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="store2 fade">
+                        <div class="store_name">
+                            <strong>&quot;친환경을 생각한 이야기가 있는 공간&quot;</strong>
+                            <h3>신촌 연세로점</h3>
+                        </div>
+                        <div class="over">
+                            <div class="over_bg">
+                                <p>다양한 친환경 마감재와 인테리어를<br>
+                                    경험할 수 있는 신촌연세로점에서<br>
+                                    커피 한잔과 함께 힐링을 느껴보세요</p>
+                                <a href="">매장 안내</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="store3 fade">
+                        <div class="store_name">
+                            <strong>&quot;올데이 페어링 문화공간&quot;</strong>
+                            <h3>신논현역점</h3>
+                        </div>
+                        <div class="over">
+                            <div class="over_bg">
+                                <p>트렌디한 베이커리를 경험할 수 있는 공간!<br>
+                                    든든한 한 끼로 제격인 신선한 샌드위치는 물론<br>
+                                    유니크한 베이커리를 취향별로 골라보세요</p>
+                                <a href="">매장 안내</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="section" id="cnt3">
+                <h2 class="tit_top tit"></h2>
+            </section>
+            <section class="section" id="cnt4">Some section</section>
+            <div class="section fp-auto-height">
+                <footer id="footer"></footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
